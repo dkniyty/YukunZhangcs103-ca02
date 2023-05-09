@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        GPT History
+    </title>
+</head>
+
+<body>
+    <h1>
+        History for <%= locals.username %>
+    </h1>
+    <% if (items.length==0) { %>
+        <p>No history </p>
+        <% } else { %>
+            <ul><li><a href="/history/clear">Clear</a></li></ul>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Prompt</th>
+                    <th>Answer</th>
+                    <th>Date</th>
+                </tr>
+                <% items.forEach(item=> { %>
+                    <tr>
+                        <td>
+                            <%= item.prompt %>
+                        </td>
+                        <td>
+                            <%= item.answer %>
+                        </td>
+                        <td>
+                            <%= item.time %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </table>
+            <%}%>
+</body>
+
+</html>
